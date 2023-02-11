@@ -1,5 +1,6 @@
 class Article {
   int articleId;
+  bool isBookMarked;
   String? author;
   String? description;
   String? isFavorite;
@@ -16,6 +17,7 @@ class Article {
   final now = DateTime.now();
   Article({
     required this.articleId,
+    required this.isBookMarked,
     this.author,
     this.description,
     this.isFavorite,

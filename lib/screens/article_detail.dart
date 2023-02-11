@@ -50,23 +50,59 @@ class ArticleDetails extends StatelessWidget {
                 ],
               ),
               const SizedBox(
-                height: 20,
+                height: 10,
               ),
-              Card(
-                child: ListTile(
-                  title: Padding(
-                    padding: const EdgeInsets.only(bottom: 10),
-                    child: Text(article?.authorFirstName ?? ''),
-                  ),
-                  subtitle: Text(article?.createDate ?? ''),
-                  leading: CircleAvatar(
-                      radius: 40,
-                      backgroundColor: Colors.transparent,
-                      child: buildImage()
-                      // Image.network(
-                      //     'https://media.istockphoto.com/photos/excited-woman-wearing-rainbow-cardigan-picture-id1327495437'),
+              Container(
+                height: 100,
+                width: double.infinity,
+                color: Colors.transparent,
+                // color: Colors.black38,
+                child: Padding(
+                  padding: const EdgeInsets.only(left: 12),
+                  child: Row(
+                    children: [
+                      CircleAvatar(
+                          radius: 40,
+                          backgroundColor: Colors.transparent,
+                          child: buildImage()),
+                      const SizedBox(
+                        width: 12,
                       ),
-                  trailing: Text(article?.readingDuration.toString() ?? ''),
+                      Padding(
+                        padding: const EdgeInsets.only(top: 30),
+                        child: Column(
+                          children: [
+                            Text(article?.authorFirstName ?? ''),
+                            const SizedBox(
+                              height: 8,
+                            ),
+                            Text(article?.createDate ?? ''),
+                          ],
+                        ),
+                      ),
+                      const SizedBox(
+                        width: 200,
+                      ),
+                      Row(
+                        children: [
+                          const Icon(
+                            Icons.access_time_filled,
+                          ),
+                          Text(article?.readingDuration.toString() ?? ''),
+                        ],
+                      )
+                    ],
+                  ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text(
+                  article?.description ?? '',
+                  textAlign: TextAlign.justify,
+                  style: const TextStyle(
+                    fontSize: 20,
+                  ),
                 ),
               )
             ],
