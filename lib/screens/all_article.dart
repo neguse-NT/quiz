@@ -21,7 +21,11 @@ class AllRecentArticles extends StatelessWidget {
       ),
       body: Column(
         children: [
-          SizedBox(height: 500, child: RecentlyArticles()),
+          SizedBox(
+              height: 500,
+              child: RecentlyArticles(
+                provider: allArticleProvider,
+              )),
         ],
       ),
     );

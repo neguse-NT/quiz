@@ -4,6 +4,7 @@ bool isBookMarked = true;
 final articles = [
   Article(
     articleId: 1,
+    isFavorite: true,
     author: 'Shrek',
     title: "Shrek dreamwork ",
     imgUrl: "https://tinyurl.com/88fmpjmc",
@@ -23,6 +24,7 @@ final articles = [
     articleId: 2,
     author: 'Yemane',
     title: "The life of the man",
+    isFavorite: false,
     imgUrl: "https://tinyurl.com/88fmpjmc",
     description:
         "Nelson Rolihlahla Mandela was a South African anti-apartheid activist and politician who served as the first  president of South Africa from 1994 to 1999. He was the country's first black head of state and the first elected in a fully representative democratic election.",
@@ -40,6 +42,7 @@ final articles = [
     articleId: 3,
     author: 'Not known',
     title: "Joy of the Earth",
+    isFavorite: true,
     imgUrl: "https://tinyurl.com/yyy4ypj4",
     description:
         "Nelson Rolihlahla Mandela was a South African anti-apartheid activist and politician who served as the first  president of South Africa from 1994 to 1999. He was the country's first black head of state and the first elected in a fully representative democratic election.",
@@ -57,6 +60,7 @@ final articles = [
     articleId: 4,
     author: 'Debesay',
     title: "Zngbaba",
+    isFavorite: false,
     imgUrl: "https://tinyurl.com/yvk8yj8f",
     description:
         "Nelson Rolihlahla Mandela was a South African anti-apartheid activist and politician who served as the first  president of South Africa from 1994 to 1999. He was the country's first black head of state and the first elected in a fully representative democratic election.",
@@ -74,6 +78,7 @@ final articles = [
     articleId: 5,
     author: 'Jenifer',
     title: "The lord of the earth",
+    isFavorite: false,
     imgUrl: "https://tinyurl.com/4cvzhm4m",
     description:
         "Nelson Rolihlahla Mandela was a South African anti-apartheid activist and politician who served as the first  president of South Africa from 1994 to 1999. He was the country's first black head of state and the first elected in a fully representative democratic election.",
@@ -91,12 +96,13 @@ final articles = [
     articleId: 5,
     author: 'Mesi',
     title: "The players of football",
+    isFavorite: true,
     imgUrl: "https://tinyurl.com/29b9c62m",
     description:
         "Nelson Rolihlahla Mandela was a South African anti-apartheid activist and politician who served as the first  president of South Africa from 1994 to 1999. He was the country's first black head of state and the first elected in a fully representative democratic election.",
     likeCount: 578,
     readCount: 564,
-    authorFirstName: "Naoda",
+    authorFirstName: "Naod",
     authorLastName: "",
     body: "",
     category: "",

@@ -1,15 +1,27 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:recentlyquize/constants/article_data.dart';
 import 'package:recentlyquize/screens/article_detail.dart';
 
 import '../models/recent_article_model.dart';
 
-class PopularArticle extends StatelessWidget {
-  const PopularArticle({super.key});
+final articleProvider = Provider<List<Article>>((ref) {
+  return articles;
+});
+//all articles
+final allArticleProvider =
+    StateNotifierProvider<ArticleNotifier, List<Article>>(
+  (_) => ArticleNotifier(),
+);
+
+class PopularArticle extends ConsumerWidget {
+  final AlwaysAliveProviderBase<Iterable<Article>> provider;
+  const PopularArticle({super.key, required this.provider});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final articles = ref.watch(provider);
     return SizedBox(
       // color: Colors.black,
       height: 250,
@@ -20,7 +32,20 @@ class PopularArticle extends StatelessWidget {
           width: 15,
         ),
         itemBuilder: (context, index) {
-          Article article = articles[index];
+          final article = articles.elementAt(index);
+          final isBookMarkedIcon = article.isBookMarked
+              ? SvgPicture.asset(
+                  "assets/bookmark.svg",
+                  width: 20,
+                  height: 20,
+                  // color: Colors.blueGrey,
+                )
+              : SvgPicture.asset(
+                  "assets/bookmarked.svg",
+                  width: 20,
+                  height: 20,
+                  //color: Colors.blueGrey,
+                );
           return Card(
             color: Colors.black,
             child: Column(
@@ -47,11 +72,15 @@ class PopularArticle extends StatelessWidget {
                       child: Row(
                           mainAxisAlignment: MainAxisAlignment.end,
                           children: [
-                            SvgPicture.asset(
-                              "assets/bookmark.svg",
-                              width: 20,
-                              height: 20,
-                              //color: Colors.blueGrey,
+                            IconButton(
+                              onPressed: () {
+                                final isBookMarked = !article.isBookMarked;
+                                ref.read(allArticleProvider.notifier).update(
+                                      article,
+                                      isBookMarked,
+                                    );
+                              },
+                              icon: isBookMarkedIcon,
                             ),
                           ]),
                     ),
@@ -87,7 +116,12 @@ class PopularArticle extends StatelessWidget {
                     const SizedBox(
                       width: 20,
                     ),
-                    const Icon(Icons.favorite_border),
+                    SvgPicture.asset(
+                      "assets/favorite.svg",
+                      width: 20,
+                      height: 16,
+                      //color: Colors.blueGrey,
+                    ),
                     const SizedBox(
                       width: 3,
                     ),

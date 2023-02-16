@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:recentlyquize/models/recent_article_model.dart';
 
+// ignore: must_be_immutable
 class ArticleDetails extends StatelessWidget {
   Article? article;
   ArticleDetails({Key? key, required this.article}) : super(key: key);
@@ -81,7 +82,7 @@ class ArticleDetails extends StatelessWidget {
                         ),
                       ),
                       const SizedBox(
-                        width: 200,
+                        width: 100,
                       ),
                       Row(
                         children: [
